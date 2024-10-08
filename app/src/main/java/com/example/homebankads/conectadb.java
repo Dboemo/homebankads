@@ -8,7 +8,7 @@ public class conectadb extends SQLiteOpenHelper {
 
     String tab_usr = "CREATE TABLE IF NOT EXISTS usuario (" +
             "id INTEGER PRIMARY KEY AUTOINCREMENT," +
-            "login TEXT," +
+            "login TEXT, " +
             "senha TEXT," +
             "saldo NUMERIC)";
     String tab_mov ="CREATE TABLE IF NOT EXISTS movimento (" +
