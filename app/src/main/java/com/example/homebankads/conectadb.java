@@ -19,6 +19,7 @@ public class conectadb extends SQLiteOpenHelper {
             "destino TEXT  ," +
             "dataopera DATE )";
 
+
     conectadb(Context contexto) {
 
         super(contexto, "homebankdb", null, 1);
