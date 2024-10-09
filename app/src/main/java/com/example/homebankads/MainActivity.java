@@ -15,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
     Button btlogar;
     TextView linkregistro;
     EditText edtlogin,edtsenha;
+    private conectadb banco;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         this.setTitle("Home Bank ADS");
+        banco = new conectadb(MainActivity.this);
         btlogar=(Button) findViewById(R.id.buttonlogar);
         edtlogin=(EditText)findViewById(R.id.edtemail);
         edtsenha=(EditText)findViewById(R.id.edtsenha);

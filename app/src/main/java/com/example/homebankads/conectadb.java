@@ -20,6 +20,7 @@ public class conectadb extends SQLiteOpenHelper {
             "dataopera DATE )";
 
 
+
     conectadb(Context contexto) {
 
         super(contexto, "homebankdb", null, 1);
