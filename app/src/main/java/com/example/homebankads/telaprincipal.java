@@ -41,6 +41,7 @@ public class telaprincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), telamovimentos.class);
+                i.putExtra("idusuario","");
                 startActivity(i);
             }
         });

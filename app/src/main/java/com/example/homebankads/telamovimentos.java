@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class telamovimentos extends AppCompatActivity {
     Button btsaque,btdeposito,btpagamento,bttransferencia,btretornar;
     final Context context = this;
@@ -60,6 +63,14 @@ public class telamovimentos extends AppCompatActivity {
                 alertDialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // aqui você faz a gravação do depósito
+                        movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
+                        movimentos movi = new movimentos();
+                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setTipo_opera("Depósito");
+
+                        //movi.setDataopera(Date);
+
+
                     }
                 });
                 alertDialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
