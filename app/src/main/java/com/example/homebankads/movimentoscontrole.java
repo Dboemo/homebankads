@@ -40,16 +40,13 @@ public class movimentoscontrole {
         }
     }
     public void atualiza_movimento(movimentos movi){
-        String ATUALIZA_MOVIMENTO = "UPDATE TABLE usuario SET login = "+movi.getLogin()+", senha ="+movi.getSenha()+
-                ",saldo="+movi.getSaldo()+" WHERE id = "+movi.getId();
-        UPDATE movimento
-        SET idmov = 'idmov',
-                idusr = 'idusr',
-                tipo_opera = 'tipo_opera',
-                valor = 'valor',
-                destino = 'destino',
-                dataopera = 'dataopera'
-        WHERE idmov = 'idmov'
+        String ATUALIZA_MOVIMENTO = "UPDATE movimento SET " +
+                "idusr = '"+movi.getIdusr()+"'," +
+                "tipo_opera = '"+movi.getTipo_opera()+"',"+
+                "valor = '"+movi.getValor()+"',"+
+                "destino = '"+movi.getDestino()+"',"+
+                "dataopera = '"+movi.getDataopera()+"'"+
+                "WHERE idmov = '"+movi.getIdmov()+"'";
         try{
             SQLiteDatabase db=banco.getWritableDatabase();
             db.execSQL(ATUALIZA_MOVIMENTO);
