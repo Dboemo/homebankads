@@ -42,3 +42,16 @@ public class conectadb extends SQLiteOpenHelper {
         onCreate(sqLiteDatabase);
     }
 }
+
+/*
+CREATE TRIGGER deposito
+         AFTER INSERT
+            ON movimento
+      FOR EACH ROW
+BEGIN
+    UPDATE usuario
+       SET saldo = saldo + NEW.valor
+     WHERE id = new.idusr;
+END;
+
+ */

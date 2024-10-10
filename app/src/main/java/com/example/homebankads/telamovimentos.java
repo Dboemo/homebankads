@@ -14,17 +14,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 
 public class telamovimentos extends AppCompatActivity {
     Button btsaque,btdeposito,btpagamento,bttransferencia,btretornar;
     final Context context = this;
+    int idusr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_telamovimentos);
-
+        Bundle extras = getIntent().getExtras();
+        idusr = extras.getInt("id");
         btsaque=(Button) findViewById(R.id.btsaque);
         btsaque.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,9 +71,11 @@ public class telamovimentos extends AppCompatActivity {
                         movimentos movi = new movimentos();
                         movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
                         movi.setTipo_opera("Depósito");
-
-                        //movi.setDataopera(Date);
-
+                        movi.setIdusr(idusr);
+                        movi.setDestino("Conta corrente");
+                        Calendar c = Calendar.getInstance();
+                        movi.setDataopera((c.getTime()));
+movic.insere_movimento(movi);
 
                     }
                 });
