@@ -18,6 +18,15 @@ public class conectadb extends SQLiteOpenHelper {
             "valor NUMERIC ," +
             "destino TEXT  ," +
             "dataopera DATE )";
+    String cria_t_deposito =" CREATE TRIGGER IF NOT EXISTS deposito\n" +
+            "         AFTER INSERT\n" +
+            "            ON movimento\n" +
+            "      FOR EACH ROW\n" +
+            "BEGIN\n" +
+            "    UPDATE usuario\n" +
+            "       SET saldo = saldo + NEW.valor\n" +
+            "     WHERE id = new.idusr;\n" +
+            "END;";
 
 
 
@@ -31,6 +40,7 @@ public class conectadb extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(tab_usr);
         sqLiteDatabase.execSQL(tab_mov);
+        sqLiteDatabase.execSQL(cria_t_deposito);
     }
 
     @Override
