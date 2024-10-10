@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
                 usuariocontrole usrcontrol = new usuariocontrole(MainActivity.this);
                 if(usrcontrol.checkusuario(edtlogin.getText().toString(),
                         edtsenha.getText().toString())){
+                usuario usr = usrcontrol.retornaDadosUsuario(edtlogin.getText().toString());
                 Intent i = new Intent(getApplicationContext(), telaprincipal.class);
                 i.putExtra("login",edtlogin.getText().toString() );
                 i.putExtra("senha", edtsenha.getText().toString());
+                i.putExtra("id",usr.getId());
                 startActivity(i);
                 }
             }
