@@ -3,15 +3,12 @@ Projeto já usado em aulas passadas com registro de dados em arquivos. Agora est
 
 TRIGGER ADICIONADA JUNTO COM A TABELA MOVIMENTO
 
-/*
-CREATE TRIGGER deposito
-         AFTER INSERT
-            ON movimento
-      FOR EACH ROW
-BEGIN
-    UPDATE usuario
-       SET saldo = saldo + NEW.valor
-     WHERE id = new.idusr;
-END;
-
- */
+    String cria_t_deposito =" CREATE TRIGGER IF NOT EXISTS deposito\n" +
+            "         AFTER INSERT\n" +
+            "            ON movimento\n" +
+            "      FOR EACH ROW\n" +
+            "BEGIN\n" +
+            "    UPDATE usuario\n" +
+            "       SET saldo = saldo + NEW.valor\n" +
+            "     WHERE id = new.idusr;\n" +
+            "END;";
