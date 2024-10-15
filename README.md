@@ -1,5 +1,8 @@
-Projeto HomeBank ADS 
+Projeto HomeBank ADS
+====================================================================================================
 Projeto já usado em aulas passadas com registro de dados em arquivos. Agora está usando SQLite local
+na disciplina de programação para dispositivos móveis turma ADS 19.
+
 
 TRIGGER ADICIONADA JUNTO COM A TABELA MOVIMENTO
 
