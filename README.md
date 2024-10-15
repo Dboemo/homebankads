@@ -4,7 +4,7 @@ Projeto já usado em aulas passadas com registro de dados em arquivos. Agora est
 na disciplina de programação para dispositivos móveis turma ADS 19.
 
 
-TRIGGER ADICIONADA JUNTO COM A TABELA MOVIMENTO deposito e saque
+TRIGGER ADICIONADA JUNTO COM A TABELA MOVIMENTO deposito 
 
  String cria_t_deposito ="CREATE TRIGGER IF NOT EXISTS deposito \n" +
             "AFTER INSERT ON movimento \n" +
@@ -16,6 +16,8 @@ TRIGGER ADICIONADA JUNTO COM A TABELA MOVIMENTO deposito e saque
             "     WHERE id = new.idusr;\n" +
             "\n" +
             "END;";
+
+TRIGGER ADICIONADA JUNTO COM A TABELA MOVIMENTO  saque
 
     String cria_t_saque ="CREATE TRIGGER IF NOT EXISTS saque \n" +
             "AFTER INSERT ON movimento \n" +
