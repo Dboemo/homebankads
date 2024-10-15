@@ -47,8 +47,10 @@ public class conectadb extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         String RECRIA = "DROP TABLE IF EXISTS usuario";
         String RECRIA2 = "DROP TABLE IF EXISTS movimento";
+        String RECRIA3 = "DROP Trigger IF EXISTS deposito";
         sqLiteDatabase.execSQL(RECRIA);
         sqLiteDatabase.execSQL(RECRIA2);
+        sqLiteDatabase.execSQL(RECRIA3);
         onCreate(sqLiteDatabase);
     }
 }
