@@ -60,9 +60,9 @@ public class movimentoscontrole {
         }
     }
 
-    public List<String> Consulta_todos_movimentos() {
+    public List<String> Lista_movimentos(int id) {
         List<String> listaDeMovimentos = new ArrayList<String>();
-        String CONSULTA_USUARIO ="SELECT tipo_opera,valor,destino,dataopera  FROM movimento ORDER BY dataopera";
+        String CONSULTA_USUARIO ="SELECT tipo_opera,valor,destino,dataopera  FROM movimento where idusr="+id+" ORDER BY dataopera";
         //idusr INTEGER
 
         try{

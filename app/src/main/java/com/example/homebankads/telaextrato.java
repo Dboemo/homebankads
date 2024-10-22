@@ -15,16 +15,18 @@ public class telaextrato extends AppCompatActivity {
     Button btextratoret;
     Spinner spmeses;
     ListView listaextrato;
-
+    int idusr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_telaextrato);
 
         listaextrato=(ListView)findViewById(R.id.listaextrato);
+        Bundle extras = getIntent().getExtras();
+        idusr = extras.getInt("id");
         movimentoscontrole movi = new movimentoscontrole(telaextrato.this);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1,movi.Consulta_todos_movimentos());
+                android.R.layout.simple_list_item_1,movi.Lista_movimentos(idusr));
         listaextrato.setAdapter(adapter);
 
         btextratoret=(Button) findViewById(R.id.btextratret);
