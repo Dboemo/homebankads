@@ -42,6 +42,7 @@
         tools:layout_editor_absoluteY="11dp" />
 
     <ListView
+        android:id="@+id/listaextrato"
         android:layout_width="match_parent"
         android:layout_height="376dp" />
 

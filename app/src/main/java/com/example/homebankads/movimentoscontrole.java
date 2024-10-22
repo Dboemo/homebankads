@@ -1,7 +1,11 @@
 package com.example.homebankads;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class movimentoscontrole {
 
@@ -54,6 +58,29 @@ public class movimentoscontrole {
         }catch(Exception ex){
             //("Erro (criação tabela)",ex.getMessage());
         }
+    }
+
+    public List<String> Consulta_todos_movimentos() {
+        List<String> listaDeMovimentos = new ArrayList<String>();
+        String CONSULTA_USUARIO ="SELECT tipo_opera,valor,destino,dataopera FROM movimento ORDER BY dataopera";
+        //idusr INTEGER
+
+        try{
+            SQLiteDatabase bd=banco.getReadableDatabase();
+            Cursor c=bd.rawQuery(CONSULTA_USUARIO,null);
+            if (c.moveToFirst()) {
+                do {
+                    listaDeMovimentos.add(c.getString(0)+" - "+c.getDouble(1)+" - "+c.getString(2)+" - "+ c.getString(3));
+                } while (c.moveToNext());
+            }
+            c.close();
+            bd.close();
+            return listaDeMovimentos;
+        }catch(Exception ex){
+            //  ("Erro (criação tabela)",ex.getMessage());
+            return null;
+        }
+
     }
 
 }
