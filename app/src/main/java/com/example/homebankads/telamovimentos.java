@@ -48,8 +48,6 @@ public class telamovimentos extends AppCompatActivity {
                         movi.setTipo_opera("Saque");
                         movi.setIdusr(idusr);
                         movi.setDestino("Conta corrente");
-                        Calendar c = Calendar.getInstance();
-                        movi.setDataopera((c.getTime()));
                         movic.insere_movimento(movi);
                     }
                 });
@@ -82,8 +80,7 @@ public class telamovimentos extends AppCompatActivity {
                         movi.setTipo_opera("Deposito");
                         movi.setIdusr(idusr);
                         movi.setDestino("Conta corrente");
-                        Calendar c = Calendar.getInstance();
-                        movi.setDataopera((c.getTime()));
+
 movic.insere_movimento(movi);
 
                     }
@@ -118,8 +115,7 @@ movic.insere_movimento(movi);
                         movi.setTipo_opera("Pagamento");
                         movi.setIdusr(idusr);
                         movi.setDestino(Objeto.getText().toString());
-                        Calendar c = Calendar.getInstance();
-                        movi.setDataopera((c.getTime()));
+
                         movic.insere_movimento(movi);
                     }
                 });
@@ -153,8 +149,8 @@ movic.insere_movimento(movi);
                         movi.setTipo_opera("Transferencia");
                         movi.setIdusr(idusr);
                         movi.setDestino(Objeto.getText().toString());
-                        Calendar c = Calendar.getInstance();
-                        movi.setDataopera((c.getTime()));
+
+
                         movic.insere_movimento(movi);
                     }
                 });

@@ -21,7 +21,7 @@ public class movimentoscontrole {
         String INSERE_MOVIMENTO = "INSERT INTO movimento (idusr,tipo_opera,valor,destino,dataopera)" +
                 " VALUES ("+
                 "'"+movi.getIdusr()+"','"+movi.getTipo_opera()+"','"+
-                movi.getValor()+"','"+movi.getDestino()+"','"+movi.getDataopera()+"')";
+                movi.getValor()+"','"+movi.getDestino()+"',DATE('now'))";
         try{
             SQLiteDatabase db=banco.getWritableDatabase();
             db.execSQL(INSERE_MOVIMENTO);
@@ -49,7 +49,7 @@ public class movimentoscontrole {
                 "tipo_opera = '"+movi.getTipo_opera()+"',"+
                 "valor = '"+movi.getValor()+"',"+
                 "destino = '"+movi.getDestino()+"',"+
-                "dataopera = '"+movi.getDataopera()+"'"+
+                "dataopera = DATE('now') "+
                 "WHERE idmov = '"+movi.getIdmov()+"'";
         try{
             SQLiteDatabase db=banco.getWritableDatabase();
@@ -62,7 +62,7 @@ public class movimentoscontrole {
 
     public List<String> Consulta_todos_movimentos() {
         List<String> listaDeMovimentos = new ArrayList<String>();
-        String CONSULTA_USUARIO ="SELECT tipo_opera,valor,destino,dataopera FROM movimento ORDER BY dataopera";
+        String CONSULTA_USUARIO ="SELECT tipo_opera,valor,destino,dataopera  FROM movimento ORDER BY dataopera";
         //idusr INTEGER
 
         try{
