@@ -77,6 +77,31 @@ public class usuariocontrole {
 
     }
 
+    public usuario retornaDadosUsuario(int id){
+        usuario usr =new usuario();
+        String CONSULTA_USUARIO ="SELECT * FROM usuario where id ='"+id+"'";
+        try{
+            SQLiteDatabase bd=banco.getReadableDatabase();
+            Cursor c=bd.rawQuery(CONSULTA_USUARIO,null);
+            if (c.moveToFirst()) {
+                do {
+
+                    usr.setId(Integer.parseInt(c.getString(0)));
+                    usr.setLogin(c.getString(1));
+                    usr.setSenha(c.getString(2));
+                    usr.setSaldo(c.getDouble(3));
+
+                } while (c.moveToNext());
+            }
+            c.close();
+            bd.close();
+            return usr;
+        }catch(Exception ex){
+            //  ("Erro (criação tabela)",ex.getMessage());
+            return null;
+        }
+
+    }
     public List<usuario> Consulta_todos_usuarios() {
         List<usuario> listaDeUsuarios = new ArrayList<usuario>();
         String CONSULTA_USUARIO ="SELECT id,login,senha,saldo FROM usuario ORDER BY login";

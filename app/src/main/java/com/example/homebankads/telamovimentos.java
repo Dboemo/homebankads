@@ -42,6 +42,15 @@ public class telamovimentos extends AppCompatActivity {
                 alertDialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // aqui você faz a gravação do saldo
+                        movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
+                        movimentos movi = new movimentos();
+                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setTipo_opera("Saque");
+                        movi.setIdusr(idusr);
+                        movi.setDestino("Conta corrente");
+                        Calendar c = Calendar.getInstance();
+                        movi.setDataopera((c.getTime()));
+                        movic.insere_movimento(movi);
                     }
                 });
                 alertDialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -70,7 +79,7 @@ public class telamovimentos extends AppCompatActivity {
                         movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
                         movimentos movi = new movimentos();
                         movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
-                        movi.setTipo_opera("Depósito");
+                        movi.setTipo_opera("Deposito");
                         movi.setIdusr(idusr);
                         movi.setDestino("Conta corrente");
                         Calendar c = Calendar.getInstance();
@@ -103,6 +112,15 @@ movic.insere_movimento(movi);
                 alertDialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // aqui você faz a gravação do depósito ->
+                        movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
+                        movimentos movi = new movimentos();
+                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setTipo_opera("Pagamento");
+                        movi.setIdusr(idusr);
+                        movi.setDestino(Objeto.getText().toString());
+                        Calendar c = Calendar.getInstance();
+                        movi.setDataopera((c.getTime()));
+                        movic.insere_movimento(movi);
                     }
                 });
                 alertDialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -129,6 +147,15 @@ movic.insere_movimento(movi);
                 alertDialogBuilder.setPositiveButton("Ok",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // aqui você faz a gravação do depósito ->
+                        movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
+                        movimentos movi = new movimentos();
+                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setTipo_opera("Transferencia");
+                        movi.setIdusr(idusr);
+                        movi.setDestino(Objeto.getText().toString());
+                        Calendar c = Calendar.getInstance();
+                        movi.setDataopera((c.getTime()));
+                        movic.insere_movimento(movi);
                     }
                 });
                 alertDialogBuilder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
@@ -147,6 +174,7 @@ movic.insere_movimento(movi);
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getApplicationContext(), telaprincipal.class);
+                i.putExtra("id",idusr);
                 startActivity(i);
             }
         });

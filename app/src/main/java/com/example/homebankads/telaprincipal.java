@@ -23,10 +23,10 @@ public class telaprincipal extends AppCompatActivity {
         usuariocontrole usrc = new usuariocontrole(telaprincipal.this);
         try {
             Bundle extras = getIntent().getExtras();
-            String nome = extras.getString("login");
+           // String nome = extras.getString("login");
             idusr = extras.getInt("id");
-            txtcorrentista.setText(nome);
-            txtsaldo.setText(""+usrc.retornaDadosUsuario(nome).getSaldo());
+            txtcorrentista.setText(""+usrc.retornaDadosUsuario(idusr).getLogin());
+            txtsaldo.setText(""+usrc.retornaDadosUsuario(idusr).getSaldo());
         }catch(Exception ex){}
         btextrato = (Button)findViewById(R.id.btextrato);
         btextrato.setOnClickListener(new View.OnClickListener() {
