@@ -44,7 +44,7 @@ public class telamovimentos extends AppCompatActivity {
                         // aqui você faz a gravação do saldo
                         movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
                         movimentos movi = new movimentos();
-                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setValor(-1*(Double.parseDouble(Valordigitado.getText().toString())));
                         movi.setTipo_opera("Saque");
                         movi.setIdusr(idusr);
                         movi.setDestino("Conta corrente");
@@ -114,7 +114,7 @@ movic.insere_movimento(movi);
                         // aqui você faz a gravação do depósito ->
                         movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
                         movimentos movi = new movimentos();
-                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setValor(-1*(Double.parseDouble(Valordigitado.getText().toString())));
                         movi.setTipo_opera("Pagamento");
                         movi.setIdusr(idusr);
                         movi.setDestino(Objeto.getText().toString());
@@ -149,7 +149,7 @@ movic.insere_movimento(movi);
                         // aqui você faz a gravação do depósito ->
                         movimentoscontrole movic =new movimentoscontrole(telamovimentos.this);
                         movimentos movi = new movimentos();
-                        movi.setValor(Double.parseDouble(Valordigitado.getText().toString()));
+                        movi.setValor(-1*(Double.parseDouble(Valordigitado.getText().toString())));
                         movi.setTipo_opera("Transferencia");
                         movi.setIdusr(idusr);
                         movi.setDestino(Objeto.getText().toString());
