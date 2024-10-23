@@ -41,10 +41,16 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="11dp" />
 
+    <Button
+        android:id="@+id/btconsultaext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Consultar" />
+
     <ListView
         android:id="@+id/listaextrato"
         android:layout_width="match_parent"
-        android:layout_height="376dp" />
+        android:layout_height="336dp" />
 
     <Button
         android:id="@+id/btextratret"
